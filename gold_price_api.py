@@ -53,5 +53,8 @@ def gold_price_api():
             "timestamp": timestamp
         }), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.route('/')
+def index():
+    return jsonify({"message": "Use the /get-gold-price route to get gold price."})
+
+# Remove app.run() since Gunicorn will manage the app in production.
